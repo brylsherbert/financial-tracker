@@ -1,0 +1,53 @@
+{
+    "financialGoals": [
+      {
+        "id": 1,
+        "goal": "Save for a down payment on a house",
+        "targetAmount": 25000,
+        "progress": 12000,
+        "targetDate": "2026-12-31",
+        "priority": "High"
+      },
+      {
+        "id": 2,
+        "goal": "Emergency Fund",
+        "targetAmount": 10000,
+        "progress": 5000,
+        "targetDate": "2025-06-30",
+        "priority": "Medium"
+      },
+      {
+        "id": 3,
+        "goal": "Retirement Fund",
+        "targetAmount": 500000,
+        "progress": 150000,
+        "targetDate": "2050-01-01",
+        "priority": "High"
+      },
+      {
+        "id": 4,
+        "goal": "Pay off student loans",
+        "targetAmount": 20000,
+        "progress": 7000,
+        "targetDate": "2027-09-01",
+        "priority": "Medium"
+      },
+      {
+        "id": 5,
+        "goal": "Vacation Fund (Hawaii Trip)",
+        "targetAmount": 5000,
+        "progress": 2500,
+        "targetDate": "2024-12-01",
+        "priority": "Low"
+      },
+      {
+        "id": 6,
+        "goal": "Build Investment Portfolio",
+        "targetAmount": 100000,
+        "progress": 25000,
+        "targetDate": "2030-01-01",
+        "priority": "Medium"
+      }
+    ]
+  }
+  

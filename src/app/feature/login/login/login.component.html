@@ -1,0 +1,61 @@
+<app-header [tabTitle]="'Login Page'"></app-header>
+
+<ion-content fullscreen="true" class="ion-padding">
+  <ion-grid class="h-full">
+    <ion-col size="12">
+      <div class="flex flex-col h-full justify-center">
+        <!-- Form Label -->
+        <div class="flex flex-col py-4 px-2">
+          <p class="text-4xl font-bold">Login</p>
+        </div>
+
+        <!-- Form Container -->
+        <ion-card class="form-container">
+          <form id="login-form" [formGroup]="form" class="flex flex-col gap-8 justify-center h-full login-form p-8 m-4">      
+            <!-- Inputs -->
+            <div class="ion-input-container flex flex-col gap-2">
+              <label for="email">Email</label>
+              <ion-input 
+              formControlName="email" 
+              placeholder="Enter Email"
+              errorText="Invalid email"
+              email
+              id="email"
+              class="text-input"
+              >
+              </ion-input>
+              
+              <label for="password">Password</label>
+              <ion-input 
+              type="password" 
+              formControlName="password" 
+              placeholder="Enter Password"
+              errorText="Password should consist of atleast 6 characters"
+              id="password"
+              class="text-input"
+              >
+                <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+              </ion-input>
+            
+              <!-- Submit Button -->
+              <ion-button expand="block" class="w-full py-2"
+              [disabled]="form.invalid"
+              (click)="submitForm()"
+              type="submit">
+                Login
+              </ion-button>
+
+              <ion-label>
+                Don't have an account? <a href="#" class="font-bold">Sign up</a>
+              </ion-label>
+
+              <ion-label class="font-bold">
+                <a href="#">Forgot your password?</a>
+              </ion-label>
+            </div>
+          </form>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-grid>
+</ion-content>

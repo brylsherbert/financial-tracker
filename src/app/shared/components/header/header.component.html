@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{ tabTitle() }} </ion-title>
+
+    <!-- Header Buttons -->
+    <ion-buttons slot="end">
+      <!-- Auth Icon -->
+      @if(showAuth()) {
+        <ion-button (click)="showAuthAlert()">
+          <ion-icon color="dark" slot="icon-only" [name]="'person-circle-outline'"></ion-icon>
+        </ion-button>
+      }
+      
+      <!-- Dark Mode Toggle Button -->
+      <ion-button (click)="this.themeService.toggleDarkMode()">
+        <ion-icon color="dark" slot="icon-only" [name]="this.themeService.isDarkMode() ? 'sunny-outline' : 'sunny'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

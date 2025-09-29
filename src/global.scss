@@ -33,5 +33,22 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.class.css";
+// @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+ion-item {
+    --background: none;
+}
+
+ion-input.text-input.ios .input-bottom ,
+ion-input.text-input.md .input-bottom {
+   border-top: none;
+}
+
+ion-input.text-input.ios .native-wrapper ,
+ion-input.text-input.md .native-wrapper {
+   background: var(--native-wrapper-background);
+   border-radius: 1rem;
+   padding-left: 16px;
+}

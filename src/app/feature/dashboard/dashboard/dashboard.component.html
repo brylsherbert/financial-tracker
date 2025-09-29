@@ -1,0 +1,79 @@
+<app-header [tabTitle]="'Financial Goals Dashboard'" [showAuth]="true"></app-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Show Loading Indicator -->
+        @if (loading()) {
+          <div class="loading-container">
+            <p>Loading financial goals...</p>
+          </div>
+        }
+
+        <!-- Show Empty Indicator -->
+        @if (!loading() && financialGoals().length === 0) {
+          <div class="no-data">
+            <p>No financial goals found.</p>
+          </div>
+        }
+
+        <!-- Show Goals -->
+        @if (!loading() && financialGoals().length > 0) {
+          <div class="goal-container flex flex-col gap-4">
+            @for (goal of financialGoals(); track goal.id) {
+              <ion-card class="goal-card flex flex-col p-4 gap-3.5">
+                <ion-card-header>
+                  <ion-card-title class="text-2xl">{{ goal.goal }}</ion-card-title>
+                </ion-card-header>
+                
+                <ion-card-content>
+                  <div class="flex justify-between items-start">
+                    <ion-label>
+                      <h3>Target Amount: ${{ goal.targetAmount | number:'1.0-0' }}</h3>
+                      <p>Progress: ${{ goal.progress | number:'1.0-0' }} / ${{ goal.targetAmount | number:'1.0-0' }}</p>
+                      <p>Target Date: {{ goal.targetDate | date:'mediumDate' }}</p>
+                    </ion-label>
+  
+                    <ion-badge class="p-2" [color]="getPriorityColor(goal.priority)" slot="end">
+                      {{ goal.priority }}
+                    </ion-badge>
+                  </div>
+                  
+                  <div class="progress-bar-container flex flex-col gap-1 pt-4">
+                    <div class="flex justify-between">
+                      <ion-label class="earned-label flex gap-1 justify-center items-center">
+                        <span>Income</span>
+                      </ion-label>
+                      
+                      <ion-label class="goal-label flex gap-1 justify-center items-center">
+                        <p><span class="text-green-400 font-bold">${{ goal.progress | number:'1.0-0' }} </span>/ ${{ goal.targetAmount | number:'1.0-0' }}</p>
+                      </ion-label>
+                    </div>
+
+                    <ion-progress-bar 
+                    [value]="getProgressPercentage(goal) / 100" 
+                    [color]="getProgressPercentage(goal) >= 100 ? 'primary' : 'success'"
+                    >
+                    </ion-progress-bar>
+                  
+                    <div class="flex justify-between">
+                      <ion-label class="earned-label flex gap-1 justify-center items-center">
+                        <ion-icon name="ellipse" class="text-green-500"></ion-icon>
+                        <span>Earned</span>
+                      </ion-label>
+                      
+                      <ion-label class="goal-label flex gap-1 justify-center items-center">
+                        <ion-icon name="ellipse" [class]="(getProgressPercentage(goal) === 100 ? 'text-green-500' : 'text-sky-200')"></ion-icon>
+                        <span>Goal</span>
+                      </ion-label>
+                    </div>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            } 
+          </div>
+        }
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
