@@ -26,8 +26,7 @@ import {
   IonGrid,
   IonInputPasswordToggle,
   IonButtons,
-  IonCard,
-} from '@ionic/angular/standalone';
+  IonCard, IonCardTitle, IonCardHeader, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
   arrowForwardOutline,
@@ -50,7 +49,7 @@ import { HeaderComponent } from "src/app/shared/components/header/header.compone
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  imports: [
+  imports: [IonCardContent, IonCardHeader, IonCardTitle, 
     IonCard,
     IonGrid,
     IonCol,
