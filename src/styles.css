@@ -1,0 +1,2 @@
+@import "tailwindcss"; /* Make sure you import tailwindcss lib first */
+@import "tailwind-ionic-utils/index.css";
